@@ -46,7 +46,7 @@ public class ServerResource {
     }
 
     @GetMapping("/ping/{ipAddress}")
-    public ResponseEntity<Response> pingServer(@PathVariable("ipAddress") String ipAddress){
+    public ResponseEntity<Response> pingServer(@PathVariable("ipAddress") String ipAddress) throws IOException {
         Server server = serverService.ping(ipAddress);
         return ResponseEntity.ok(
                 Response.builder()
